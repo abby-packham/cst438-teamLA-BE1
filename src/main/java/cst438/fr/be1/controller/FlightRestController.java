@@ -18,9 +18,21 @@ public class FlightRestController {
     @GetMapping("/api/flights")
     public ResponseEntity<FlightInfo> getFlights() {
         FlightInfo flights = flightService.getAllFlights();
-        if (flights == null) {
+        if (flights == null || flights.getFlights().isEmpty()) {
             return new ResponseEntity<FlightInfo>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<FlightInfo>(flights, HttpStatus.OK);
+    }
+
+    @GetMapping("/api/admin/flights/add")
+    public ResponseEntity addFlights() {
+        flightService.addFlights();
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping("/api/admin/flights/deleteall")
+    public ResponseEntity deleteAllFlights() {
+        flightService.deleteAllFlights();
+        return new ResponseEntity(HttpStatus.OK);
     }
 }
