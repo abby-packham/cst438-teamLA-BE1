@@ -37,6 +37,19 @@ public class FlightService {
         Timestamp estimatedDepartureTime = null;
         Flight flight = new Flight(flightNumber, operatingAirlines, departureCity, arrivalCity,
                 dateOfDeparture, dateOfArrival, estimatedDepartureTime);
+        
+        this.flightRepository.save(flight);
+        
+        flightNumber = "453";
+        operatingAirlines = "American";
+        departureCity = "LAS";
+        arrivalCity = "LAX";
+        dateOfDeparture = new Date();
+        dateOfArrival = new Date();
+        estimatedDepartureTime = null;
+        flight = new Flight(flightNumber, operatingAirlines, departureCity, arrivalCity,
+                dateOfDeparture, dateOfArrival, estimatedDepartureTime);
+        
         this.flightRepository.save(flight);
         
     }
