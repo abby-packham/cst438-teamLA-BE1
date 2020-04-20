@@ -1,1 +1,1 @@
-# cst438-teamLA-BE1
+# cst438 Team LA Flight Reservation service
